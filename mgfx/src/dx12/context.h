@@ -16,7 +16,7 @@ public:
     virtual ISceneManager* GetSceneManager() override;
 
 public:
-    Context();
+    Context(const char* title);
     ~Context();
     bool ShouldQuit() const;
     bool ProcessEvent(const SDL_Event& event);

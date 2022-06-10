@@ -18,10 +18,10 @@ ISceneManager* Context::GetSceneManager()
     return NULL;
 }
 
-Context::Context()
+Context::Context(const char* title)
 : m_Quit(false)
 {
-    SDL_Window* window = SDL_CreateWindow("D3D12 GLTF Viewer",
+    SDL_Window* window = SDL_CreateWindow(title,
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         800, 600,
         SDL_WINDOW_RESIZABLE);

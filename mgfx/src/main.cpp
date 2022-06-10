@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
         SPDLOG_ERROR("Unable to initialize SDL: {}", SDL_GetError());
         return 1;
     }
-    auto context = new mgfx::dx12::Context();
+    auto context = new mgfx::dx12::Context(info.Name.c_str());
     info.UserData->Initialize(context);
 
     //
