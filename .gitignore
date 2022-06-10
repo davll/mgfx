@@ -1,0 +1,7 @@
+/[Bb]uild
+/[Tt]mp
+/.vscode
+*~
+.DS_Store
+*.swp
+imgui.ini
