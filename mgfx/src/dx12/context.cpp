@@ -15,7 +15,7 @@ namespace mgfx::dx12 {
 
 ISceneManager* Context::GetSceneManager()
 {
-    return NULL;
+    return m_SceneManager;
 }
 
 Context::Context(const char* title)
@@ -74,11 +74,15 @@ Context::Context(const char* title)
             staticGpuSpan[0]
         );
     }
+
+    m_SceneManager = new SceneManager();
 }
 
 Context::~Context()
 {
     m_SwapChain->WaitAll();
+
+    delete m_SceneManager;
 
     ImGui::SetCurrentContext(m_ImGuiCtx);
     ImGui_ImplDX12_Shutdown();

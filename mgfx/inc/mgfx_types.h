@@ -38,9 +38,11 @@ static_assert(alignof(rgba) == 4);
 #define MGFX_DEFINE_HANDLE(tyname) \
     struct tyname {\
         u32 magic : 16; u32 index : 16; \
-        static tyname null() { return { 0, 0 }; } \
+        static tyname null() { return { 0, 0xFFFF }; } \
+        static tyname start(u32 idx) { return { 0x8000, idx }; } \
         operator bool() const { return !!magic; } \
         bool operator==(tyname o) const { return magic == o.magic && index == o.index; } \
+        void update_magic() { magic = (magic + 1) | 0x8000; } \
     };
 
 MGFX_DEFINE_HANDLE(HScene)

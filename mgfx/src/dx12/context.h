@@ -10,6 +10,7 @@ namespace mgfx::dx12 {
 class Device;
 class SwapChain;
 class GpuDescriptorHeap;
+class SceneManager;
 
 class Context : public IContext {
 public:
@@ -38,6 +39,8 @@ private:
     SwapChain* m_SwapChain;
     GpuDescriptorHeap* m_ResourceDescriptorHeap;
     GpuDescriptorHeap* m_SamplerDescriptorHeap;
+
+    SceneManager* m_SceneManager;
 
     //
     // Current Frame
